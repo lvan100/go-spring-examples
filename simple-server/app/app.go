@@ -18,7 +18,11 @@ package app
 
 import (
 	_ "simple-server/app/bootstrap"
+	_ "simple-server/app/common/grpcsvr"
 	_ "simple-server/app/common/handlers/log"
 	_ "simple-server/app/common/httpsvr"
-	_ "simple-server/app/controller"
+	_ "simple-server/app/common/thriftsvr"
+	_ "simple-server/app/grpc-controller"
+	_ "simple-server/app/http-controller"
+	_ "simple-server/app/thrift-controller"
 )
