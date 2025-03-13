@@ -448,21 +448,21 @@ func NewEchoServiceEchoArgs() *EchoServiceEchoArgs {
 
 var EchoServiceEchoArgs_Req_DEFAULT *EchoRequest
 
-func (p *EchoServiceEchoArgs) GetReq() *EchoRequest 
+func (p *EchoServiceEchoArgs) GetReq() *EchoRequest {
 	if !p.IsSetReq() {
 		return EchoServiceEchoArgs_Req_DEFAULT
 	}
 	return p.Req
-return p.Req
 }
+func (p *EchoServiceEchoArgs) IsSetReq() bool {
 	return p.Req != nil
-  return p.Req != nil
 }
 
+func (p *EchoServiceEchoArgs) Read(ctx context.Context, iprot thrift.TProtocol) error {
 	if _, err := iprot.ReadStructBegin(ctx); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T read error: ", p), err)
 	}
-  }
+
 	for {
 		_, fieldTypeId, fieldId, err := iprot.ReadFieldBegin(ctx)
 		if err != nil {
@@ -495,17 +495,17 @@ return p.Req
 		return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
 	}
 	return nil
-  return nil
 }
+
 func (p *EchoServiceEchoArgs) ReadField1(ctx context.Context, iprot thrift.TProtocol) error {
 	p.Req = &EchoRequest{}
 	if err := p.Req.Read(ctx, iprot); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T error reading struct: ", p.Req), err)
 	}
 	return nil
-  return nil
 }
 
+func (p *EchoServiceEchoArgs) Write(ctx context.Context, oprot thrift.TProtocol) error {
 	if err := oprot.WriteStructBegin(ctx, "echo_args"); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T write struct begin error: ", p), err)
 	}
@@ -521,9 +521,9 @@ func (p *EchoServiceEchoArgs) ReadField1(ctx context.Context, iprot thrift.TProt
 		return thrift.PrependError("write struct stop error: ", err)
 	}
 	return nil
-  return nil
 }
 
+func (p *EchoServiceEchoArgs) writeField1(ctx context.Context, oprot thrift.TProtocol) (err error) {
 	if err := oprot.WriteFieldBegin(ctx, "req", thrift.STRUCT, 1); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T write field begin error 1:req: ", p), err)
 	}
@@ -534,42 +534,42 @@ func (p *EchoServiceEchoArgs) ReadField1(ctx context.Context, iprot thrift.TProt
 		return thrift.PrependError(fmt.Sprintf("%T write field end error 1:req: ", p), err)
 	}
 	return err
-  return err
 }
 
+func (p *EchoServiceEchoArgs) String() string {
 	if p == nil {
 		return "<nil>"
 	}
 	return fmt.Sprintf("EchoServiceEchoArgs(%+v)", *p)
-  return fmt.Sprintf("EchoServiceEchoArgs(%+v)", *p)
 }
 
+// Attributes:
 //   - Success
-//  - Success
+type EchoServiceEchoResult struct {
 	Success *EchoResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
-  Success *EchoResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
 
+func NewEchoServiceEchoResult() *EchoServiceEchoResult {
 	return &EchoServiceEchoResult{}
-  return &EchoServiceEchoResult{}
 }
 
- EchoServiceEchoResult struct {
-	Success *EchoResponse 
+var EchoServiceEchoResult_Success_DEFAULT *EchoResponse
+
+func (p *EchoServiceEchoResult) GetSuccess() *EchoResponse {
 	if !p.IsSetSuccess() {
 		return EchoServiceEchoResult_Success_DEFAULT
 	}
 	return p.Success
-  }
-return p.Success
-	return p.Success != nil
-func (p *EchoServiceEchoResult) IsSetSuccess() bool {
-  return p.Success != nil
 }
+func (p *EchoServiceEchoResult) IsSetSuccess() bool {
+	return p.Success != nil
+}
+
+func (p *EchoServiceEchoResult) Read(ctx context.Context, iprot thrift.TProtocol) error {
 	if _, err := iprot.ReadStructBegin(ctx); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T read error: ", p), err)
 	}
-    return thrift.PrependError(fmt.Sprintf("%T read error: ", p), err)
+
 	for {
 		_, fieldTypeId, fieldId, err := iprot.ReadFieldBegin(ctx)
 		if err != nil {
@@ -602,17 +602,17 @@ func (p *EchoServiceEchoResult) IsSetSuccess() bool {
 		return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
 	}
 	return nil
-  }
-  return nil
+}
+
 func (p *EchoServiceEchoResult) ReadField0(ctx context.Context, iprot thrift.TProtocol) error {
 	p.Success = &EchoResponse{}
 	if err := p.Success.Read(ctx, iprot); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T error reading struct: ", p.Success), err)
 	}
 	return nil
-  }
-  return nil
 }
+
+func (p *EchoServiceEchoResult) Write(ctx context.Context, oprot thrift.TProtocol) error {
 	if err := oprot.WriteStructBegin(ctx, "echo_result"); err != nil {
 		return thrift.PrependError(fmt.Sprintf("%T write struct begin error: ", p), err)
 	}
@@ -628,9 +628,9 @@ func (p *EchoServiceEchoResult) ReadField0(ctx context.Context, iprot thrift.TPr
 		return thrift.PrependError("write struct stop error: ", err)
 	}
 	return nil
-    return thrift.PrependError("write struct stop error: ", err) }
-  return nil
 }
+
+func (p *EchoServiceEchoResult) writeField0(ctx context.Context, oprot thrift.TProtocol) (err error) {
 	if p.IsSetSuccess() {
 		if err := oprot.WriteFieldBegin(ctx, "success", thrift.STRUCT, 0); err != nil {
 			return thrift.PrependError(fmt.Sprintf("%T write field begin error 0:success: ", p), err)
@@ -643,13 +643,11 @@ func (p *EchoServiceEchoResult) ReadField0(ctx context.Context, iprot thrift.TPr
 		}
 	}
 	return err
-  }
-  return err
 }
+
+func (p *EchoServiceEchoResult) String() string {
 	if p == nil {
 		return "<nil>"
 	}
 	return fmt.Sprintf("EchoServiceEchoResult(%+v)", *p)
-  }
-  return fmt.Sprintf("EchoServiceEchoResult(%+v)", *p)
-
+}

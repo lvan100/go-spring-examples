@@ -14,17 +14,10 @@
  * limitations under the License.
  */
 
-package thrift_controller
+package util
 
 import (
-	"context"
-
-	"simple-server/idl/thrift/proto"
+	"google.golang.org/grpc"
 )
 
-type EchoController struct {
-}
-
-func (c *EchoController) Echo(ctx context.Context, req *proto.EchoRequest) (r *proto.EchoResponse, err error) {
-	return &proto.EchoResponse{Message: req.Message}, nil
-}
+type GrpcServerConfiger func(svr *grpc.Server)

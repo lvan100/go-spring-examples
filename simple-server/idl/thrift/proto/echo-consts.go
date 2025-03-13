@@ -6,8 +6,9 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	thrift "github.com/apache/thrift/lib/go/thrift"
 	"time"
+
+	thrift "github.com/apache/thrift/lib/go/thrift"
 )
 
 // (needed to ensure safety because of naive import list construction.)
